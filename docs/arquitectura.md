@@ -70,6 +70,8 @@ Ver `plugins/versions.txt` e `install-plugins.sh`. Los importantes:
 - `mu-plugins/labdoo-security.php`: oculta `/wp-json/wp/v2/users` a visitantes anónimos.
 - `mu-plugins/labdoo-chatbot-mobile.php`: CSS para la ventana del chatbot de AI Engine en
   móvil (AI Engine está ahora inactivo).
+- `mu-plugins/labdoo-seo-fixes.php`: corrige la URL canónica de las portadas de idioma, que
+  Rank Math 1.0.282 rompe en su integración con Polylang (`/es/` declaraba `/es/es/`).
 - `webroot/hub-lookup.php`: buscador de hubs por ciudad para el chatbot.
 
 ## Chatbot
