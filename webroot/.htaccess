@@ -1,0 +1,156 @@
+#This Apache config file was created by Duplicator Installer on 2021-02-09 07:15:02.
+#The original can be found in archived file with the name .htaccess__[HASH]
+# BEGIN Drupal-legacy (2026-11-03): enlaces antiguos /content/ -> platform
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^((?:[a-z]{2}/)?content/.*)$ https://platform.labdoo.org/$1 [R=301,L]
+</IfModule>
+# END Drupal-legacy
+
+# BEGIN WordPress
+RewriteEngine On
+
+#LABDOO DRUPAL REDIRECTIONS
+#Redirect "/content/" "https://platform.labdoo.org/content/"
+#Redirect "/node/" "https://platform.labdoo.org/node/"
+#Redirect "/clone-dootronics" "https://platform.labdoo.org/clone-dootronics"
+#Redirect "/user/" "https://platform.labdoo.org/user/"
+#Redirect "/laptop/" "https://platform.labdoo.org/laptop/"
+
+#Redirect "/en/content/" "https://platform.labdoo.org/en/content/"
+#Redirect "/ca/content/" "https://platform.labdoo.org/ca/content/"
+
+#Redirect "/ar/content/" "https://platform.labdoo.org/ar/content/"
+#Redirect "/zh-hans/content/" "https://platform.labdoo.org/zh-hans/content/"
+#Redirect "/zh-hant/content/" "https://platform.labdoo.org/zh-hant/content/"
+#Redirect "/nl/content/" "https://platform.labdoo.org/nl/content/"
+#Redirect "/fr/content/" "https://platform.labdoo.org/fr/content/"
+#Redirect "/de/content/" "https://platform.labdoo.org/de/content/"
+#Redirect "/it/content/" "https://platform.labdoo.org/it/content/"
+#Redirect "/ja/content/" "https://platform.labdoo.org/ja/content/"
+#Redirect "/pl/content/" "https://platform.labdoo.org/pl/content/"
+#Redirect "/ru/content/" "https://platform.labdoo.org/ru/content/"
+#Redirect "/sr/content/" "https://platform.labdoo.org/sr/content/"
+#Redirect "/es/content/" "https://platform.labdoo.org/es/content/"
+#Redirect "/sw/content/" "https://platform.labdoo.org/sw/content/"
+
+#Redirect "/ar/hubs" "https://platform.labdoo.org/ar/hubs"
+#Redirect "/zh-hans/hubs" "https://platform.labdoo.org/zh-hans/hubs"
+#Redirect "/zh-hant/hubs" "https://platform.labdoo.org/zh-hant/hubs"
+#Redirect "/nl/hubs" "https://platform.labdoo.org/nl/hubs"
+#Redirect "/fr/hubs" "https://platform.labdoo.org/fr/hubs"
+#Redirect "/de/hubs" "https://platform.labdoo.org/de/hubs"
+#Redirect "/it/hubs" "https://platform.labdoo.org/it/hubs"
+#Redirect "/ja/hubs" "https://platform.labdoo.org/ja/hubs"
+#Redirect "/pl/hubs" "https://platform.labdoo.org/pl/hubs"
+#Redirect "/ru/hubs" "https://platform.labdoo.org/ru/hubs"
+#Redirect "/sr/hubs" "https://platform.labdoo.org/sr/hubs"
+#Redirect "/es/hubs" "https://platform.labdoo.org/es/hubs"
+#Redirect "/sw/hubs" "https://platform.labdoo.org/sw/hubs"
+#Redirect "/ca/hubs" "https://platform.labdoo.org/ca/hubs"
+
+#RedirectMatch 301 /edoovillage?e(.*) https://platform.labdoo.org/edoovillage$1
+#RedirectMatch 301 /hub?h(.*) https://platform.labdoo.org/hub$1
+
+
+Redirect "/de/LabdooD" "https://platform.labdoo.org/de/LabdooD"
+
+#LABDOO PLATFORM REDIRECTIONS - Mar 2026
+RewriteCond %{QUERY_STRING} ^re=2$
+RewriteRule ^content/contact-labdoo$ https://platform.labdoo.org/content/contact-labdoo?re=2 [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^h=119075$
+RewriteRule ^hub$ https://platform.labdoo.org/hub?h=119075 [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^h=115549$
+RewriteRule ^hub$ https://platform.labdoo.org/hub?h=115549 [R=301,L]
+
+Redirect 301 "/content/hubs-dashboard" "https://platform.labdoo.org/content/hubs-dashboard"
+#END LABDOO PLATFORM REDIRECTIONS - Mar 2026
+
+
+#Redirect "/en/book/" "https://platform.labdoo.org/en/book/"
+#Redirect "/ca/book/" "https://platform.labdoo.org/ca/book/"
+
+#Redirect "/ar/book/" "https://platform.labdoo.org/ar/book/"
+#Redirect "/zh-hans/book/" "https://platform.labdoo.org/zh-hans/book/"
+#Redirect "/zh-hant/book/" "https://platform.labdoo.org/zh-hant/book/"
+#Redirect "/nl/book/" "https://platform.labdoo.org/nl/book/"
+#Redirect "/fr/book/" "https://platform.labdoo.org/fr/book/"
+#Redirect "/de/book/" "https://platform.labdoo.org/de/book/"
+#Redirect "/it/book/" "https://platform.labdoo.org/it/book/"
+#Redirect "/ja/book/" "https://platform.labdoo.org/ja/book/"
+#Redirect "/pl/book/" "https://platform.labdoo.org/pl/book/"
+#Redirect "/ru/book/" "https://platform.labdoo.org/ru/book/"
+#Redirect "/sr/book/" "https://platform.labdoo.org/sr/book/"
+#Redirect "/es/book/" "https://platform.labdoo.org/es/book/"
+#Redirect "/sw/book/" "https://platform.labdoo.org/sw/book/"
+
+
+#END LABDOO DRUPAL REDIRECTIONS
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+ # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # Video
+  ExpiresByType video/webm "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/mpeg "access plus 1 year"
+
+  # Fonts
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+
+  # CSS, JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  # Others
+  ExpiresByType application/pdf "access plus 1 month"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+</IfModule>
+
+
+RewriteBase /
+RewriteRule ^index.php$ - [L]
+ 
+# add a trailing slash to /wp-admin
+RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+ 
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteCond %{REQUEST_URI} ^/[_0-9a-zA-Z-]+/wp-(content|admin|includes)
+RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) $2 [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
+RewriteRule . index.php [L]
+
+
+# END WordPress
+#LABDOO CUSTOM - May 2019 - Banned IP Address domains from Chinese providers ide             ntified to be used by Bot networks
+#Also introduction of customized 403 message, advissing how to request access
+#And also identification of bots by Header
+ErrorDocument 403 /403_forbidden_custom_labdoo.html
+#ErrorDocument 403 https://askapache.com
+
+BrowserMatchNoCase "spider-feedback@bytedance.com|Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; spider-feedback@bytedance.com)|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36|MSIE|AhrefsBot|Sogou|SemrushBot|SCspider|Textbot|s2bot|andex|Sogou|SemrushBo|sogou|MegaIndex|AhrefsBot|MJ12bot|Baiduspider|Re-re" bots
+#BrowserMatchNoCase "|Opera|MSIE|AhrefsBot|Sogou|SemrushBot|SCspider|Textbot|s2b             ot" bots
+BrowserMatchNoCase "^Mozilla\/5.0 \(Windows NT 10.0; Win64; x64.*Chrome\/68.0.3440.75.*Safari\/537.36" evil
+Order Allow,Deny
+#deny for the bots definded in the BrowserMatchNocase
+Allow from all
+Deny from env=bots
+Deny from env=evil
+

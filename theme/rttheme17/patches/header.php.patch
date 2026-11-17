@@ -1,0 +1,318 @@
+--- a/header.php
++++ b/header.php
+@@ -1,8 +1,11 @@
+ <!doctype html>
+ <html <?php language_attributes(); ?> class="no-js">
+ <head>
++<meta name="description" content="Labdoo is a global collaborative social network of grassroots volunteers using CO2-neutral means to provide schools in need with unused computers loaded with powerful educational software."/>
++<meta name="keywords" content="laptop, IT, donate, charity, volunteering, spende, ehrenamtlich, education, projects"/>
++
+ <meta charset="<?php bloginfo( 'charset' ); ?>" />
+-<?php if(!get_option( THEMESLUG."_close_responsive")):?><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, text-size=normal"><?php endif;?>
++<?php if(!get_option( THEMESLUG."_close_responsive")):?><meta name="viewport" content="width=device-width, initial-scale=1, text-size=normal"><?php endif;?>
+ 
+ <title><?php if (is_home() || is_front_page() ): bloginfo('name'); else: wp_title('');endif; ?></title>
+ <?php if (get_option( 'rttheme_favicon_url')):?><link rel="icon" type="image/png" href="<?php echo get_option( 'rttheme_favicon_url');?>"><?php endif;?>
+@@ -20,17 +23,19 @@
+ #
+ add_filter('body_class','rt_body_class_name');
+ ?>
++<link rel="preconnect" href="https://fonts.googleapis.com">
++<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <?php wp_head(); ?>
+ </head>
+ <body <?php body_class(); ?>>
+-<!-- Global site tag (gtag.js) - Google Analytics -->
+-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-73613311-1"></script>
++<!-- Google tag (gtag.js) - GA4 -->
++<script async src="https://www.googletagmanager.com/gtag/js?id=G-69FD52Z9VZ"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+ 
+-  gtag('config', 'UA-73613311-1');
++  gtag('config', 'G-69FD52Z9VZ');
+ </script>
+ 
+ <?php
+@@ -107,22 +112,22 @@
+ 
+ 	<?php $Progress = "Global Progress";?>
+ 
+-	<?php	if (get_locale() == 'es_ES'):?>
++	<?php	if (substr( get_locale(), 0, 2 ) === "es"):?>
+ 	
+ 
+-<?php echo do_shortcode('[jsoncontentimporter url="http://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
++<?php echo do_shortcode('[jsoncontentimporter url="https://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
+ 	<div style="padding:10px;">
+ 		<div style="display: flex; margin: auto; width: 100%; justify-content: center;">
+ 			<div  property="content:encoded" style="text-decoration: none;font-size: 15px;line-height: 15px;font-family: ExoRegular;">Progreso Global:
+-				<span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard"style="color: #ff6309; text-decoration: none;font-size: 20px;line-height: 15px;font-family: ExoRegular;">{dootronics}</a></span>
++				<span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #ff6309; text-decoration: none;font-size: 20px;line-height: 15px;font-family: ExoRegular;">{dootronics}</a></span>
+ 				<span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #333333; text-decoration: none;">Dispositivos</a></span>&nbsp; &nbsp;
+ 				<span class="numbers""><a href="https://platform.labdoo.org/content/edoovillages-dashboard" style="color: #ff6309; text-decoration: none;font-size: 20px;line-height: 15px;font-family: ExoRegular;">{escuelas}</a></span>
+ 				<span class="numbers""><a href="https://platform.labdoo.org/content/edoovillages-dashboard" style="color: #333333; text-decoration: none;">Escuelas</a></span>&nbsp; &nbsp;
+ 				<span class="numbers"><a href="https://platform.labdoo.org/content/edoovillages-dashboard" style="color: #ff6309; text-decoration: none;font-size: 20px; line-height: 15px; font-family: ExoRegular;">{estudiantes}</a></span>
+ 				<span class="numbers""><a href="https://platform.labdoo.org/content/edoovillages-dashboard" style="color: #333333; text-decoration: none;">Estudiantes</a></span>&nbsp; &nbsp;
+-				<span class="numbers""><a href="https://platform.labdoo.org/content/hubs-dashboard" style="color: #ff6309; text-decoration: none;	font-size: 20px; line-height: 15px; font-family: ExoRegular;">{hubs}</a></span>
++				<span class="numbers""><a href="https://platform.labdoo.org/content/hubs-dashboard" style="color: #ff6309; text-decoration: none;font-size: 20px; line-height: 15px; font-family: ExoRegular;">{hubs}</a></span>
+ 				<span class="numbers"><a href="https://platform.labdoo.org/content/hubs-dashboard" style="color: #333333; text-decoration: none;">Hubs</a></span>&nbsp; &nbsp;
+-				<span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #ff6309; text-decoration: none;font-size: 20px;line-height: 15px;	font-family: ExoRegular;">{paises}</a></span>
++				<span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #ff6309; text-decoration: none;font-size: 20px;line-height: 15px;font-family: ExoRegular;">{paises}</a></span>
+ 				<span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #333333; text-decoration: none;">Países</a></span>&nbsp;
+                                 <span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #ff6309; text-decoration: none;font-size: 20px;line-height: 15px;font-family: ExoRegular;">{co2saved}</a></span>
+                                 <span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #333333; text-decoration: none;">Kg CO2 ahorrados</a></span>&nbsp;
+@@ -131,10 +136,9 @@
+ 	</div>
+ [/jsoncontentimporter]');?>
+ 
+-<?php endif;?>
+ 
+-<?php	if (get_locale() == 'en_US'):?>
+-	<?php echo do_shortcode('[jsoncontentimporter url="http://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
++<?php	elseif (substr( get_locale(), 0, 2 ) === "en"):?>
++	<?php echo do_shortcode('[jsoncontentimporter url="https://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
+ 
+ <div style="padding:10px;">
+ 	<div style="display: flex; margin: auto; width: 100%; justify-content: center;">
+@@ -145,11 +149,11 @@
+ 			<span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard" >Schools</a></span>&nbsp; &nbsp;
+ 			<span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{estudiantes}</a></span>
+ 			<span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard">Students</a></span>&nbsp; &nbsp;
+-			<span ><a class="numbers text-orange"href="https://platform.labdoo.org/content/hubs-dashboard" >{hubs}</a></span>
+-			<span ><a class="numbers" href="https://platform.labdoo.org/content/hubs-dashboard" ">Hubs</a></span>&nbsp; &nbsp;
+-			<span ><a class="numbers text-orange"href="https://platform.labdoo.org/content/dootronics-dashboard">{paises}</a></span>
++			<span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/hubs-dashboard" >{hubs}</a></span>
++			<span ><a class="numbers" href="https://platform.labdoo.org/content/hubs-dashboard">Hubs</a></span>&nbsp; &nbsp;
++			<span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{paises}</a></span>
+ 			<span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Countries</a></span>&nbsp;
+-			<span ><a class="numbers text-orange"href="https://platform.labdoo.org/content/dootronics-dashboard">{co2saved}</a></span>
++			<span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{co2saved}</a></span>
+                         <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Kgs CO2 saved</a></span>&nbsp;
+ 
+ 		</div>
+@@ -159,11 +163,10 @@
+ </div>
+ 
+ [/jsoncontentimporter]');?>
+-<?php endif;?>
+ 		
+ 
+-<?php	if (get_locale() == 'de_DE'):?>
+-	<?php echo do_shortcode('[jsoncontentimporter url="http://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
++<?php	elseif (substr( get_locale(), 0, 2 ) === "de"):?>
++	<?php echo do_shortcode('[jsoncontentimporter url="https://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
+ 
+ <div style="padding:10px;">
+ 	<div style="display: flex; margin: auto; width: 100%; justify-content: center;">
+@@ -174,11 +177,11 @@
+ 			<span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard" >Projekte</a></span>&nbsp; &nbsp;
+ 			<span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{estudiantes}</a></span>
+ 			<span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard">SchülerInnen</a></span>&nbsp; &nbsp;
+-			<span ><a class="numbers text-orange"href="https://platform.labdoo.org/content/hubs-dashboard" >{hubs}</a></span>
+-			<span ><a class="numbers" href="https://platform.labdoo.org/content/hubs-dashboard" ">Hubs</a></span>&nbsp; &nbsp;
+-			<span ><a class="numbers text-orange"href="https://platform.labdoo.org/content/dootronics-dashboard">{paises}</a></span>
++			<span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/hubs-dashboard" >{hubs}</a></span>
++			<span ><a class="numbers" href="https://platform.labdoo.org/content/hubs-dashboard">Hubs</a></span>&nbsp; &nbsp;
++			<span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{paises}</a></span>
+ 			<span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Länder</a></span>&nbsp;
+-	                <span ><a class="numbers text-orange"href="https://platform.labdoo.org/content/dootronics-dashboard">{co2saved}</a></span>
++	                <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{co2saved}</a></span>
+                         <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Kgs CO2 eingespart</a></span>&nbsp;
+ 
+ 		</div>
+@@ -188,10 +191,9 @@
+ </div>
+ 
+ [/jsoncontentimporter]');?>
+-<?php endif;?>
+ 
+-<?php   if (get_locale() == 'ca'):?>
+-        <?php echo do_shortcode('[jsoncontentimporter url="http://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
++<?php   elseif (substr( get_locale(), 0, 2 ) === "ca"):?>
++        <?php echo do_shortcode('[jsoncontentimporter url="https://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
+ 
+ <div style="padding:10px;">
+         <div style="display: flex; margin: auto; width: 100%; justify-content: center;">
+@@ -202,11 +204,11 @@
+                         <span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard" >Escoles</a></span>&nbsp; &nbsp;
+                         <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{estudiantes}</a></span>
+                         <span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard">Estudiants</a></span>&nbsp; &nbsp;
+-                        <span ><a class="numbers text-orange"href="https://platform.labdoo.org/content/hubs-dashboard" >{hubs}</a></span>
+-                        <span ><a class="numbers" href="https://platform.labdoo.org/content/hubs-dashboard" ">Hubs</a></span>&nbsp; &nbsp;
+-                        <span ><a class="numbers text-orange"href="https://platform.labdoo.org/content/dootronics-dashboard">{paises}</a></span>
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/hubs-dashboard" >{hubs}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/hubs-dashboard">Hubs</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{paises}</a></span>
+                         <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Països</a></span>&nbsp;
+-                        <span ><a class="numbers text-orange"href="https://platform.labdoo.org/content/dootronics-dashboard">{co2saved}</a></span>
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{co2saved}</a></span>
+                         <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Kgs CO2 estalviats</a></span>&nbsp;
+ 
+                 </div>
+@@ -216,8 +218,87 @@
+ </div>
+ 
+ [/jsoncontentimporter]');?>
+-<?php endif;?>
+ 
++<?php   elseif (substr( get_locale(), 0, 2 ) === "fr"):?>
++        <?php echo do_shortcode('[jsoncontentimporter url="https://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
++
++<div style="padding:10px;">
++        <div style="display: flex; margin: auto; width: 100%; justify-content: center;">
++                <div  property="content:encoded"  style="color: #333333; text-decoration: none;">Évolution globale:
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{dootronics}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Appareils</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{escuelas}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard" >Écoles</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{estudiantes}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard">Élèves</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/hubs-dashboard" >{hubs}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/hubs-dashboard">Hubs</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{paises}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Pays</a></span>&nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{co2saved}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Kgs CO2 économisé</a></span>&nbsp;
++
++                </div>
++
++        </div>
++
++</div>
++
++[/jsoncontentimporter]');?>
++
++
++<?php   elseif (substr( get_locale(), 0, 2 ) === "it"):?>
++        <?php echo do_shortcode('[jsoncontentimporter url="https://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
++
++<div style="padding:10px;">
++        <div style="display: flex; margin: auto; width: 100%; justify-content: center;">
++                <div  property="content:encoded"  style="color: #333333; text-decoration: none;">Progresso globale:
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/it/content/dootronics-dashboard">{dootronics}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/it/content/dootronics-dashboard" >Dispositivi</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/it/content/edoovillages-dashboard" >{escuelas}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/it/content/edoovillages-dashboard" >Scuole</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/it/content/edoovillages-dashboard" >{estudiantes}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/it/content/edoovillages-dashboard">Studenti</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/it/content/hubs-dashboard" >{hubs}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/it/content/hubs-dashboard">Hubs</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/it/content/dootronics-dashboard">{paises}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/it/content/dootronics-dashboard" >Paesi</a></span>&nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/it/content/dootronics-dashboard">{co2saved}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/it/content/dootronics-dashboard" >Kgs CO2 risparmiati</a></span>&nbsp;
++
++                </div>
++        </div>
++
++</div>
++
++[/jsoncontentimporter]');?>
++
++<?php   else:?>
++        <?php echo do_shortcode('[jsoncontentimporter url="https://www.labdoo.org/wp-content/themes/rttheme17/data.json"   basenode="level1"]
++
++<div style="padding:10px;">
++        <div style="display: flex; margin: auto; width: 100%; justify-content: center;">
++                 <div  property="content:encoded"  style="color: #333333; text-decoration: none;">Global Progress:
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{dootronics}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Devices</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{escuelas}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard" >Schools</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{estudiantes}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard">Students</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/hubs-dashboard" >{hubs}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/hubs-dashboard">Hubs</a></span>&nbsp; &nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{paises}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Countries</a></span>&nbsp;
++                        <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/dootronics-dashboard">{co2saved}</a></span>
++                        <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Kgs CO2 saved</a></span>&nbsp;
++
++                </div>
++        </div>
++</div>
++
++[/jsoncontentimporter]');?>
++
++<?php endif;?>
+ 
+  	</div>
+ 	<!-- / flags -->
+@@ -261,8 +342,29 @@
+ 			<?php
+ 				global $logo_container;
+ 				$logo_container = get_option(THEMESLUG.'_logo_container');
+-				$logo_url       = get_option('rttheme_logo_url');
+-			?>
++		#		$logo_url       =$logo_url       = get_option('rttheme_logo_url');
++        $logo_url       ="https://www.labdoo.org/wp-content/uploads/2021/02/logo-2-alpha-bar-1-1024x108.jpg";
++				$platform_dasb= "https://platform.labdoo.org/content/edoovillages-dashboard";
++				if (substr( get_locale(), 0, 2 ) === "es") {
++				$platform_dasb= "https://platform.labdoo.org/es/content/edoovillages-dashboard";
++				}
++				elseif (substr( get_locale(), 0, 2 ) === "en" ) {
++                                $platform_dasb= "https://platform.labdoo.org/content/edoovillages-dashboard";
++                                }
++				elseif (substr( get_locale(), 0, 2 ) === "de") {
++                                $platform_dasb= "https://platform.labdoo.org/de/content/edoovillages-dashboard";
++                                }
++				elseif (substr( get_locale(), 0, 2 ) === "ca") {
++                                $platform_dasb= "https://platform.labdoo.org/ca/content/edoovillages-dashboard";
++				}
++				elseif (substr( get_locale(), 0, 2 ) === "fr") {
++                                $platform_dasb= "https://platform.labdoo.org/fr/content/edoovillages-dashboard";
++                                }
++                                elseif (substr( get_locale(), 0, 2 ) === "it") {
++                                $platform_dasb= "https://platform.labdoo.org/it/content/edoovillages-dashboard";
++                                }
++
++?>
+ 			<!-- logo -->
+ 			<div id="logo" class="clearfix <?php if(!$logo_container) echo "no-container";?>  <?php if(!$logo_container && !$logo_url) echo "no-logo-img";?>">
+ 				<?php
+@@ -273,19 +375,23 @@
+ 					<div class="transparent-line logo"></div><!-- transparent line -->
+ 					<div class="logo-background"><!-- logo background-->
+ 					<?php endif;?>
+-						<?php if($logo_url):?>
+-							<a href="<?php echo BLOGURL; ?>" title="<?php echo bloginfo('name');?>"><img src="<?php echo $logo_url; ?>" alt="<?php echo bloginfo('name');?>" class="png" /></a>
+-						<?php else:?>
+-							<h1 class="cufon logo"><a href="<?php echo BLOGURL; ?>" title="<?php echo bloginfo('name');?>"><?php echo bloginfo('name');?></a></h1>
+-						<?php endif;?>
+-				<?php if($logo_container):?>
+-					</div>
+-				</div>
+-				<div class="shadow-right"></div><!-- shadow right-->
+-				<?php endif;?>
+-			</div>
++
++
++          <div class="wp-block-column" style="flex-basis:100%">
++          <div class="wp-block-media-text" style="grid-template-columns:75% auto">
++          <a href="<?php echo BLOGURL; ?>" title="<?php echo bloginfo('name');?>"><img src="<?php echo $logo_url; ?>" alt="<?php echo bloginfo('name');?>" class="png"  style="width:100%"/></a>
++          <div class="wp-block-media-text alignwide is-stacked-on-mobile ticss-e1687588" style="grid-template-columns:100% auto">
++	  <a href="<?php echo $platform_dasb; ?>" title="<?php echo bloginfo('name');?>"><img src="https://www.labdoo.org/wp-content/uploads/sites/6/2021/04/labdoo_platform_button-1.jpg" alt="<?php echo bloginfo('name');?>" class="jpg"  style="width:60%;margin:0px 20px" align="right" /></a>
++
++          </div>
++
++          </div>
++          </div>
+ 			<!-- / end div #logo -->
+ 
++
++
++
+ 			<!-- navigation -->
+ 			<nav><div id="navigation_bar" class="navigation">
+ 
+@@ -315,7 +421,6 @@
+ 						'menu_id'         => "MobileMainNavigation",
+ 						'echo'            => false,
+ 						'container'       => 'div',
+-						'container_class' => '',
+ 						'container_id'    => 'MobileMainNavigation-Background',
+ 						'theme_location'  => 'rt-theme-main-navigation',
+ 						'dropdown_title'  => __('-- Main Menu --',"rt_theme"),

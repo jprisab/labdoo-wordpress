@@ -1,0 +1,20 @@
+# Nunca subir secretos ni el tema comercial
+*.pem
+*.ppk
+*.key
+*.crt
+*.p12
+.gmail_app_pw
+.my.cnf
+wp-config.php
+/theme/rttheme17/*
+!/theme/rttheme17/patches/
+!/theme/rttheme17/snippets/
+!/theme/rttheme17/images/
+!/theme/rttheme17/apply-patches.sh
+*.zip
+*.wpress
+*.sql
+!/db/*.sql.gz
+uploads/
+.DS_Store

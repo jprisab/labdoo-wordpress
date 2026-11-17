@@ -1,0 +1,9 @@
+# apache-too-many-requests.local
+# Sobreescribe ignoreregex del .conf original para excluir activos estáticos
+# de WordPress que generan muchas peticiones paralelas legítimas.
+# Creado: 2026-05-20
+
+[Definition]
+ignoreregex = ^<HOST> -.*"(GET|POST|HEAD) /wp-content/uploads/[^ ]*.*HTTP/.*"
+              ^<HOST> -.*"(GET|POST|HEAD) /wp-content/themes/[^ ]*.*HTTP/.*"
+              ^<HOST> -.*"(GET|POST|HEAD) /wp-content/plugins/[^ ]*.*HTTP/.*"

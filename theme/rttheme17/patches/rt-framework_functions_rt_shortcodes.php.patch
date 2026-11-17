@@ -1,0 +1,11 @@
+--- a/rt-framework/functions/rt_shortcodes.php
++++ b/rt-framework/functions/rt_shortcodes.php
+@@ -618,7 +618,7 @@
+ 		if(get_option( THEMESLUG.'_'.$value )){
+ 			$social_media_output .= '<li>';
+ 			$social_media_output .= '<a target="'.$target.'" href="'. $link .'" title="'.str_replace(" ", "&nbsp;", $key).'">';
+-			$social_media_output .= '<img src="'.THEMEURI.'/images/assets/social_media/icon-'.$value.'.png" width="24" height="24" alt="" />';
++			$social_media_output .= '<img src="'.THEMEURI.'/images/assets/social_media/icon-'.$value.'.png" width="24" height="24" alt="'.esc_attr($key).'" />';
+ 			$social_media_output .= '</a>';
+ 			$social_media_output .= '</li>';
+ 		}

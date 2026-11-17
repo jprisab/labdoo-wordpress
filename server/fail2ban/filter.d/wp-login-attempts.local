@@ -1,0 +1,7 @@
+[Definition]
+# Fix: '/' obligatorio antes de wp-login.php FUERA del grupo opcional de prefijo de idioma.
+# El filtro original tenía: "POST (/[a-z]{2,5}/)?wp-login\.php
+# Eso nunca hace match con /wp-login.php porque el / queda atrapado dentro del grupo opcional.
+# Corrección: "POST /([a-z]{2,5}/)?wp-login\.php
+failregex = ^<HOST> .* "POST /([a-z]{2,5}/)?wp-login\.php
+ignoreregex =

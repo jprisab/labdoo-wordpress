@@ -1,0 +1,228 @@
+--- a/functions.php
++++ b/functions.php
+@@ -1,37 +1,187 @@
+-<?php
+-#-----------------------------------------
+-#	RT-Theme functions.php
+-#	version: 1.0
+-#-----------------------------------------
+-
+-# start user session
+-if( session_id() == '' && ! headers_sent()  ) {
+-	session_start(); 
+-} 
+-
+-# Define Content Width
+-if ( ! isset( $content_width ) ){
+-	$content_width = 606;	
+-} 
+-
+-if ( ! function_exists("rtframework_load") ){
+-	/**
+-	 *
+-	 * Load the theme
+-	 *
+-	 * @return class [RT Main Class] 
+-	 *
+-	 */
+-	function rtframework_load(){
+-
+-			require_once ( get_template_directory() . '/rt-framework/classes/loading.php' );
+-			$rttheme = new RTTheme();
+-
+-			/*
+-			* 	 DO NOT CHANGE slug => "" !!! 
+-			*/
+-			$rttheme->start(array('theme' => 'RT-THEME 17','slug' => 'rttheme','version' => '1.0'));
+-		
+-	}
+-}
+-rtframework_load();
+\ No newline at end of file
++<?php
++#-----------------------------------------
++#	RT-Theme functions.php
++#	version: 1.0
++#-----------------------------------------
++
++# start user session
++if( session_id() == '' && ! headers_sent()  ) {
++	session_start(); 
++} 
++
++# Define Content Width
++if ( ! isset( $content_width ) ){
++	$content_width = 606;	
++} 
++
++if ( ! function_exists("rtframework_load") ){
++	/**
++	 *
++	 * Load the theme
++	 *
++	 * @return class [RT Main Class] 
++	 *
++	 */
++	function rtframework_load(){
++
++			require_once ( get_template_directory() . '/rt-framework/classes/loading.php' );
++			$rttheme = new RTTheme();
++
++			/*
++			* 	 DO NOT CHANGE slug => "" !!! 
++			*/
++			$rttheme->start(array('theme' => 'RT-THEME 17','slug' => 'rttheme','version' => '1.0'));
++		
++	}
++}
++rtframework_load();
++# Mastodon verification for German site (blog_id=6, https://www.labdoo.org/deu/)
++add_action( 'wp_head', function() {
++	if ( get_current_blog_id() === 6 ) {
++		echo '<link rel="me" href="https://mastodon.social/@Labdoo_D">' . "\n";
++	}
++} );
++
++# Chat widget for /global/ (blog_id=1,9) and /deu/ (blog_id=6)
++function labdoo_chat_widget() {
++	$config = [
++		1 => [ 'src' => '/labdoo-agent/labdoo-chat/chat', 'label' => 'Ask our Labdoo Chat AI Agent' ],
++		9 => [ 'src' => '/labdoo-agent/labdoo-chat/chat', 'label' => 'Ask our Labdoo Chat AI Agent' ],
++		6 => [ 'src' => '/labdoo-agent/N8N_WEBHOOK_ID_DEU/chat', 'label' => 'Frag den Labdoo KI Agent' ],
++	];
++	$bid = get_current_blog_id();
++	if ( !isset( $config[$bid] ) ) return;
++	$chat_src   = $config[$bid]['src'];
++	$chat_label = $config[$bid]['label'];
++    ?>
++    <style>
++    #labdoo-chat-iframe {
++        position: fixed !important;
++        bottom: 100px !important;
++        left: 20px !important;
++        top: auto !important;
++        right: auto !important;
++        width: 420px !important;
++        height: 620px !important;
++        border: none !important;
++        border-radius: 12px !important;
++        box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
++        z-index: 999999 !important;
++        display: none;
++        margin: 0 !important;
++        padding: 0 !important;
++        transform: none !important;
++        max-width: none !important;
++        max-height: none !important;
++        float: none !important;
++    }
++    #labdoo-chat-btn {
++        position: fixed !important;
++        bottom: 20px !important;
++        left: 20px !important;
++        top: auto !important;
++        right: auto !important;
++        display: flex !important;
++        flex-direction: column !important;
++        align-items: center !important;
++        gap: 6px !important;
++        cursor: pointer !important;
++        z-index: 999999 !important;
++        background: none !important;
++        border: none !important;
++        padding: 0 !important;
++        margin: 0 !important;
++        box-shadow: none !important;
++        transform: none !important;
++        float: none !important;
++    }
++    #labdoo-chat-label {
++        background: #1e3a5f !important;
++        color: white !important;
++        font-size: 11px !important;
++        padding: 4px 8px !important;
++        border-radius: 10px !important;
++        white-space: nowrap !important;
++        font-family: sans-serif !important;
++        font-weight: normal !important;
++        line-height: 1.4 !important;
++        display: block !important;
++        text-align: center !important;
++        max-width: 160px !important;
++    }
++    #labdoo-chat-circle {
++        width: 64px !important;
++        height: 64px !important;
++        border-radius: 50% !important;
++        background: #1e3a5f !important;
++        display: flex !important;
++        align-items: center !important;
++        justify-content: center !important;
++        overflow: hidden !important;
++        box-shadow: 0 4px 16px rgba(0,0,0,0.3) !important;
++    }
++    #labdoo-logo-img {
++        width: 56px !important;
++        height: 56px !important;
++        border-radius: 50% !important;
++        object-fit: cover !important;
++        display: block !important;
++    }
++    #labdoo-close-icon {
++        display: none;
++        width: 32px !important;
++        height: 32px !important;
++    }
++    </style>
++
++    <button id="labdoo-chat-btn" onclick="toggleLabdooChat()">
++        <span id="labdoo-chat-label"><?php echo esc_html( $chat_label ); ?></span>
++        <div id="labdoo-chat-circle">
++            <img id="labdoo-logo-img"
++                 src="https://www.labdoo.org/global/wp-content/uploads/sites/9/2021/02/logo.jpg"
++                 alt="Labdoo AI Chat">
++            <svg id="labdoo-close-icon" xmlns="http://www.w3.org/2000/svg"
++                 viewBox="0 0 24 24" fill="none"
++                 stroke="white" stroke-width="3"
++                 stroke-linecap="round" stroke-linejoin="round">
++                <line x1="18" y1="6" x2="6" y2="18"></line>
++                <line x1="6" y1="6" x2="18" y2="18"></line>
++            </svg>
++        </div>
++    </button>
++
++    <iframe id="labdoo-chat-iframe"
++        src="<?php echo esc_url( $chat_src ); ?>"
++        allow="microphone">
++    </iframe>
++
++    <script>
++    function toggleLabdooChat() {
++        var iframe = document.getElementById('labdoo-chat-iframe');
++        var label  = document.getElementById('labdoo-chat-label');
++        var logo   = document.getElementById('labdoo-logo-img');
++        var close  = document.getElementById('labdoo-close-icon');
++
++        if (iframe.style.display === 'block') {
++            // Close
++            iframe.style.display = 'none';
++            label.style.display  = 'block';
++            logo.style.display   = 'block';
++            close.style.display  = 'none';
++        } else {
++            // Open — force position every time in case theme JS moved it
++            iframe.style.setProperty('position', 'fixed',  'important');
++            iframe.style.setProperty('bottom',   '100px',  'important');
++            iframe.style.setProperty('left',     '20px',   'important');
++            iframe.style.setProperty('top',      'auto',   'important');
++            iframe.style.setProperty('right',    'auto',   'important');
++            iframe.style.display = 'block';
++            label.style.display  = 'none';
++            logo.style.display   = 'none';
++            close.style.display  = 'block';
++        }
++    }
++    </script>
++    <?php
++}
++add_action('wp_footer', 'labdoo_chat_widget');

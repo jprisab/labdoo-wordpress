@@ -1,0 +1,25 @@
+[DEFAULT]
+ignoreip = 127.0.0.1/8 ::1 62.216.211.78 2001:a61:3be6:6801:f955:26ee:1fa:ef60
+
+# jail.local — Labdoo.org
+# Sobreescribe los defaults de jail.conf y defaults-debian.conf
+
+[wp-login]
+enabled  = true
+port     = http,https
+filter   = wp-login-attempts
+logpath  = /var/log/apache2/access.log
+maxretry = 5
+findtime = 600
+bantime  = 604800
+backend  = auto
+
+[apache-too-many-requests]
+enabled  = true
+port     = http,https
+filter   = apache-too-many-requests
+logpath  = /var/log/apache2/access.log
+maxretry = 800
+findtime = 600
+bantime  = 604800
+backend  = auto

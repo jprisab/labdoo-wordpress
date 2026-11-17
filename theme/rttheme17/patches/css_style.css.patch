@@ -1,0 +1,23 @@
+--- a/css/style.css
++++ b/css/style.css
+@@ -4291,4 +4291,18 @@
+ 		width: 100%;
+ 		height: 100%;
+ 	}
+-	
+\ No newline at end of file
++	
++
++/* Labdoo header stats bar: number and label styling */
++a.numbers {
++    color: #333333;
++    text-decoration: none;
++}
++
++a.text-orange {
++    color: #ff6309;
++    font-size: 20px;
++    line-height: 15px;
++    font-family: ExoRegular;
++    text-decoration: none;
++}

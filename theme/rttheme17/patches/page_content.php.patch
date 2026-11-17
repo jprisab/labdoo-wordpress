@@ -1,0 +1,11 @@
+--- a/page_content.php
++++ b/page_content.php
+@@ -13,7 +13,7 @@
+ 		<!-- page title -->
+ 		<div class="head_text <?php if($emptyContent=="true") echo "nomargin"; ?>">
+ 			<div class="arrow"></div><!-- arrow -->
+-			<h2><?php the_title(); ?></h2>
++			<h1><?php the_title(); ?></h1>
+ 		</div>
+ 		<!-- /page title -->
+ 			

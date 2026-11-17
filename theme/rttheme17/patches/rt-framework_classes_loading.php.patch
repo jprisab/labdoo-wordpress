@@ -1,0 +1,15 @@
+--- a/rt-framework/classes/loading.php
++++ b/rt-framework/classes/loading.php
+@@ -249,7 +249,11 @@
+ 				"Vimeo"       => "vimeo",
+ 				"Yahoo"       => "yahoo",
+ 				"YouTube"     => "youtube",
+-				"Pinterest"   => "pinterest"
++				"Pinterest"   => "pinterest",
++				"Instagram"   => "instagram",
++				"Mastodon"    => "mastodon",
++				"WhatsApp"    => "whatsapp",
++				"Signal"      => "signal"
+ 				);
+ 				
+ 

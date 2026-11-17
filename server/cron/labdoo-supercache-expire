@@ -1,0 +1,2 @@
+# Borra paginas de WP Super Cache con mas de 5 min para que "Latest Activities" no se quede viejo (2026-11-09)
+* * * * * www-data find /var/www/www.labdoo.org/wp-content/cache/supercache -type f -mmin +5 -delete 2>/dev/null
