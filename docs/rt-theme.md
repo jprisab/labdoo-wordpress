@@ -37,7 +37,7 @@ producción del 17-11-2026.
 
 | Fichero | Cambio | Por qué |
 |---|---|---|
-| `header.php` | Meta description y keywords; `preconnect` a Google Fonts; Google Analytics 4 (`G-69FD52Z9VZ`); barra **Global Progress** con las cifras de `data.json` en es/en/de/ca/fr/it; logo fijo con enlace al dashboard de edoovillages según idioma. | Integración con la plataforma Drupal y SEO. Es el cambio principal. |
+| `header.php` | `<title>` por `wp_title()` en todas las páginas, para que Rank Math ponga el título también en las portadas (antes: el nombre del sitio); `preconnect` a Google Fonts; Google Analytics 4 (`G-69FD52Z9VZ`); barra **Global Progress** con las cifras de `data.json` en es/en/de/ca/fr/it; logo fijo con enlace al dashboard de edoovillages según idioma. | Integración con la plataforma Drupal y SEO. Es el cambio principal. La descripción y las keywords fijas se quitaron en 2026-11: duplicaban la descripción de Rank Math en todas las páginas. |
 | `functions.php` | Verificación de Mastodon (`rel="me"`) en `/deu/`; **widget del chatbot** (botón fijo e iframe a `/labdoo-agent/.../chat`, un chat distinto para `/deu/`). | Chatbot de n8n. |
 | `content_generator.php` | `new stdClass` antes de asignar propiedades. | Compatibilidad con PHP 8 (antes era un error fatal). |
 | `page_content.php` | Título de página en `<h1>` en vez de `<h2>`. | SEO. |
@@ -54,7 +54,7 @@ de ThemeForest es distinta. En `snippets/` está el código de Labdoo separado d
 
 | Fragmento | Dónde va en `header.php` |
 |---|---|
-| `header-head.php` | Las dos `<meta>` y los dos `preconnect` dentro de `<head>`, antes de `<?php wp_head(); ?>`. El bloque de Google Analytics justo después de `<body <?php body_class(); ?>>`. |
+| `header-head.php` | Los dos `preconnect` dentro de `<head>`, antes de `<?php wp_head(); ?>`. El bloque de Google Analytics justo después de `<body <?php body_class(); ?>>`. |
 | `header-stats.php` | Dentro del bloque de la cabecera donde el tema pinta las banderas de idioma (`<div id="wpml_flags">`), en lugar de `languages_list()`. Es la cadena `if/elseif` por idioma. Para un idioma nuevo hay que copiar uno de los bloques. |
 | `header-logo.php` | Donde el tema asigna `$logo_url`, antes del `<!-- logo -->`. |
 
