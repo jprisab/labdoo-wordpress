@@ -13,7 +13,7 @@ multisite, PHP 8.3, MySQL 8.0, Apache 2.4, Ubuntu 24.04).
 |---|---|
 | `docs/` | Arquitectura, integración con Drupal, instalación del tema y reconstrucción paso a paso |
 | `theme/rttheme17/` | **Solo lo que Labdoo ha cambiado** del tema comercial: parches, fragmentos de código e iconos propios. El tema en sí no está (es de pago). |
-| `mu-plugins/` | Plugins «must-use» propios (`labdoo-security.php`, `labdoo-chatbot-mobile.php`) |
+| `mu-plugins/` | Plugins «must-use» propios (`labdoo-security.php`, `labdoo-chatbot-mobile.php`, `labdoo-seo-fixes.php`) |
 | `webroot/` | `.htaccess` (redirecciones a la plataforma, multisite, bloqueo de bots), `hub-lookup.php`, `robots.txt` |
 | `config/` | `wp-config.sample.php` (constantes de multisite, secretos como `CHANGE_ME`) y configuración de WP Super Cache |
 | `plugins/` | Versiones en producción e `install-plugins.sh` (WP-CLI) con la activación por sitio |
