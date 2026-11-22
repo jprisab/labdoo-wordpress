@@ -1,6 +1,4 @@
-<?php /* Labdoo: añadir dentro de <head>, justo antes de wp_head() (meta, preconnect) y justo después de <body> (Google Analytics 4). */ ?>
-<meta name="description" content="Labdoo is a global collaborative social network of grassroots volunteers using CO2-neutral means to provide schools in need with unused computers loaded with powerful educational software."/>
-<meta name="keywords" content="laptop, IT, donate, charity, volunteering, spende, ehrenamtlich, education, projects"/>
+<?php /* Labdoo: añadir dentro de <head>, justo antes de wp_head() (preconnect) y justo después de <body> (Google Analytics 4). */ ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 

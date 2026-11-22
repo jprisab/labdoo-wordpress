@@ -1,19 +1,18 @@
 --- a/header.php
 +++ b/header.php
-@@ -1,8 +1,11 @@
- <!doctype html>
+@@ -2,9 +2,9 @@
  <html <?php language_attributes(); ?> class="no-js">
  <head>
-+<meta name="description" content="Labdoo is a global collaborative social network of grassroots volunteers using CO2-neutral means to provide schools in need with unused computers loaded with powerful educational software."/>
-+<meta name="keywords" content="laptop, IT, donate, charity, volunteering, spende, ehrenamtlich, education, projects"/>
-+
  <meta charset="<?php bloginfo( 'charset' ); ?>" />
 -<?php if(!get_option( THEMESLUG."_close_responsive")):?><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, text-size=normal"><?php endif;?>
 +<?php if(!get_option( THEMESLUG."_close_responsive")):?><meta name="viewport" content="width=device-width, initial-scale=1, text-size=normal"><?php endif;?>
  
- <title><?php if (is_home() || is_front_page() ): bloginfo('name'); else: wp_title('');endif; ?></title>
+-<title><?php if (is_home() || is_front_page() ): bloginfo('name'); else: wp_title('');endif; ?></title>
++<title><?php wp_title( '' ); ?></title>
  <?php if (get_option( 'rttheme_favicon_url')):?><link rel="icon" type="image/png" href="<?php echo get_option( 'rttheme_favicon_url');?>"><?php endif;?>
-@@ -20,17 +23,19 @@
+ <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
+ <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
+@@ -20,17 +20,19 @@
  #
  add_filter('body_class','rt_body_class_name');
  ?>
@@ -36,7 +35,7 @@
  </script>
  
  <?php
-@@ -107,22 +112,22 @@
+@@ -107,22 +109,22 @@
  
  	<?php $Progress = "Global Progress";?>
  
@@ -64,7 +63,7 @@
  				<span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #333333; text-decoration: none;">Países</a></span>&nbsp;
                                  <span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #ff6309; text-decoration: none;font-size: 20px;line-height: 15px;font-family: ExoRegular;">{co2saved}</a></span>
                                  <span class="numbers"><a href="https://platform.labdoo.org/content/dootronics-dashboard" style="color: #333333; text-decoration: none;">Kg CO2 ahorrados</a></span>&nbsp;
-@@ -131,10 +136,9 @@
+@@ -131,10 +133,9 @@
  	</div>
  [/jsoncontentimporter]');?>
  
@@ -77,7 +76,7 @@
  
  <div style="padding:10px;">
  	<div style="display: flex; margin: auto; width: 100%; justify-content: center;">
-@@ -145,11 +149,11 @@
+@@ -145,11 +146,11 @@
  			<span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard" >Schools</a></span>&nbsp; &nbsp;
  			<span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{estudiantes}</a></span>
  			<span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard">Students</a></span>&nbsp; &nbsp;
@@ -93,7 +92,7 @@
                          <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Kgs CO2 saved</a></span>&nbsp;
  
  		</div>
-@@ -159,11 +163,10 @@
+@@ -159,11 +160,10 @@
  </div>
  
  [/jsoncontentimporter]');?>
@@ -107,7 +106,7 @@
  
  <div style="padding:10px;">
  	<div style="display: flex; margin: auto; width: 100%; justify-content: center;">
-@@ -174,11 +177,11 @@
+@@ -174,11 +174,11 @@
  			<span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard" >Projekte</a></span>&nbsp; &nbsp;
  			<span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{estudiantes}</a></span>
  			<span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard">SchülerInnen</a></span>&nbsp; &nbsp;
@@ -123,7 +122,7 @@
                          <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Kgs CO2 eingespart</a></span>&nbsp;
  
  		</div>
-@@ -188,10 +191,9 @@
+@@ -188,10 +188,9 @@
  </div>
  
  [/jsoncontentimporter]');?>
@@ -136,7 +135,7 @@
  
  <div style="padding:10px;">
          <div style="display: flex; margin: auto; width: 100%; justify-content: center;">
-@@ -202,11 +204,11 @@
+@@ -202,11 +201,11 @@
                          <span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard" >Escoles</a></span>&nbsp; &nbsp;
                          <span ><a class="numbers text-orange" href="https://platform.labdoo.org/content/edoovillages-dashboard" >{estudiantes}</a></span>
                          <span ><a class="numbers" href="https://platform.labdoo.org/content/edoovillages-dashboard">Estudiants</a></span>&nbsp; &nbsp;
@@ -152,7 +151,7 @@
                          <span ><a class="numbers" href="https://platform.labdoo.org/content/dootronics-dashboard" >Kgs CO2 estalviats</a></span>&nbsp;
  
                  </div>
-@@ -216,8 +218,87 @@
+@@ -216,8 +215,87 @@
  </div>
  
  [/jsoncontentimporter]');?>
@@ -241,7 +240,7 @@
  
   	</div>
  	<!-- / flags -->
-@@ -261,8 +342,29 @@
+@@ -261,8 +339,29 @@
  			<?php
  				global $logo_container;
  				$logo_container = get_option(THEMESLUG.'_logo_container');
@@ -273,7 +272,7 @@
  			<!-- logo -->
  			<div id="logo" class="clearfix <?php if(!$logo_container) echo "no-container";?>  <?php if(!$logo_container && !$logo_url) echo "no-logo-img";?>">
  				<?php
-@@ -273,19 +375,23 @@
+@@ -273,19 +372,23 @@
  					<div class="transparent-line logo"></div><!-- transparent line -->
  					<div class="logo-background"><!-- logo background-->
  					<?php endif;?>
@@ -308,7 +307,7 @@
  			<!-- navigation -->
  			<nav><div id="navigation_bar" class="navigation">
  
-@@ -315,7 +421,6 @@
+@@ -315,7 +418,6 @@
  						'menu_id'         => "MobileMainNavigation",
  						'echo'            => false,
  						'container'       => 'div',
