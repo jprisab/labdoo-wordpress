@@ -48,8 +48,12 @@ Hay un menú principal por idioma asignado por Polylang a `rt-theme-main-navigat
 ## Idiomas y redirecciones
 
 1. **Polylang** decide el idioma por la URL, con detección del navegador.
-2. **Country Redirect** (en toda la red) tiene una sola regla: visitantes con IP de Alemania →
-   `/deu`. No se aplica a páginas servidas desde la caché.
+2. **`mu-plugins/labdoo-region-redirect.php`** (desde 2026-11, sustituye a Country Redirect):
+   solo en la raíz `https://www.labdoo.org/`, los visitantes con IP de Alemania o Austria van a
+   `/deu/`. Las páginas interiores nunca redirigen. El menú «Location» guarda la elección en la
+   cookie `labdoo_region` con los enlaces `/?region=deu` y `/?region=global`, y a partir de
+   ahí la raíz respeta esa elección. Usa la base Sypex Geo del plugin Country Redirect, que queda
+   instalado pero desactivado: no borrarlo.
 3. **`.htaccess`**: redirecciones a la plataforma (ver `integracion-drupal.md`), cabeceras
    `Expires`, reglas estándar de multisite y bloqueo de bots por User-Agent.
 
@@ -61,8 +65,9 @@ Ver `plugins/versions.txt` e `install-plugins.sh`. Los importantes:
 - **JSON Content Importer**: pinta los JSON de Drupal (integración).
 - **WP Super Cache**: caché de página completa en modo PHP, caducidad 300 s, más un cron
   (`server/cron/labdoo-supercache-expire`) que borra cada minuto lo que tenga más de 5 min.
-- **Autoptimize**, **MetaSlider**, **Max Mega Menu**, **Simple Calendar**, **Rank Math SEO**,
-  **Country Redirect**.
+- **Autoptimize**, **MetaSlider**, **Max Mega Menu**, **Simple Calendar**, **Rank Math SEO**.
+- **Country Redirect**: instalado pero desactivado; solo se usa su base de datos de países (ver
+  arriba).
 - En `/deu/` y `/global/`: **Elementor** y complementos, **Permalink Manager**.
 
 ## Código propio fuera del tema
@@ -72,6 +77,8 @@ Ver `plugins/versions.txt` e `install-plugins.sh`. Los importantes:
   móvil (AI Engine está ahora inactivo).
 - `mu-plugins/labdoo-seo-fixes.php`: corrige la URL canónica de las portadas de idioma, que
   Rank Math 1.0.282 rompe en su integración con Polylang (`/es/` declaraba `/es/es/`).
+- `mu-plugins/labdoo-region-redirect.php`: redirección de Alemania y Austria a `/deu/` (ver
+  «Idiomas y redirecciones»).
 - `webroot/hub-lookup.php`: buscador de hubs por ciudad para el chatbot.
 
 ## Chatbot
