@@ -15,15 +15,17 @@ inst() { if [ "${VERSION_PIN:-0}" = 1 ]; then $WP plugin install "$1" --version=
 
 # Activos en toda la red
 NETWORK="polylang json-content-importer wp-super-cache autoptimize ml-slider megamenu
-google-calendar-events seo-by-rank-math country-redirect wpforms-lite happy-elementor-addons
+google-calendar-events seo-by-rank-math wpforms-lite happy-elementor-addons
 redux-framework loco-translate ns-cloner-site-copier widget-importer-exporter"
 # Activos solo en algunos sitios
 SITE_6_9="elementor permalink-manager rife-elementor-extensions wordpress-importer"
+# Instalado e inactivo a propósito: mu-plugins/labdoo-region-redirect.php usa su base de países.
+KEEP_INACTIVE="country-redirect"
 # Instalados pero inactivos en producción (no hace falta reinstalarlos):
 #   ai-engine apollo13-framework-extensions duplicate-page duplicator
 #   php-compatibility-checker wp-maintenance-mode
 
-for p in $NETWORK $SITE_6_9; do inst "$p"; done
+for p in $NETWORK $SITE_6_9 $KEEP_INACTIVE; do inst "$p"; done
 for p in $NETWORK; do $WP plugin activate "$p" --network; done
 for url in https://www.labdoo.org/deu/ https://www.labdoo.org/global/; do
   for p in $SITE_6_9; do $WP plugin activate "$p" --url="$url"; done
